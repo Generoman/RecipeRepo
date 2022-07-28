@@ -1,0 +1,11 @@
+{
+  "name": "reciperepo",
+  "version": "1.0.0",
+  "description": "Website for sharing recipes",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Roman M Morso",
+  "license": "ISC"
+}
