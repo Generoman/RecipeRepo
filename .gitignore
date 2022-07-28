@@ -1,0 +1,8 @@
+/.idea/
+/RecipeRepo.iml
+target/
+.parcel-cache/
+dist/
+coverage/
+.env
+node_modules/
