@@ -1,15 +1,20 @@
 import { AbstractRouter } from "./AbstractRouter";
 import e from "express";
-import { ILoginService } from "../services/ILoginService";
+import IImageService from "../services/IImageService";
+import IRecipeService from "../services/IRecipeService";
 
 export default class RecipeRouter extends AbstractRouter {
-  constructor(service: ILoginService) {
-    super(service);
+  private readonly imageService: IImageService;
+
+  constructor(recipeService: IRecipeService, imageService: IImageService) {
+    super(recipeService);
+    this.imageService = imageService;
   }
 
   fetchRoutes(): e.IRouter {
     const router = this.router;
     const service = this.service;
+    const imageService = this.imageService;
 
     return router;
   }

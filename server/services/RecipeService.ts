@@ -1,5 +1,5 @@
 import IRecipeService from "./IRecipeService";
-import RecipeDTO from "../dtos/RecipeDTO";
+import RecipeDTO from "../data/dtos/RecipeDTO";
 
 export default class RecipeService implements IRecipeService {
   delete(recipe: RecipeDTO, user: string): void {}
