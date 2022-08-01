@@ -2,15 +2,15 @@ import RecipeDTO from "../data/dtos/RecipeDTO";
 import IService from "./IService";
 
 export default interface IRecipeService extends IService {
-  save(recipeDTO: RecipeDTO): RecipeDTO;
+  saveRecipe(recipeDTO: RecipeDTO): RecipeDTO;
 
-  retrieveAll(): RecipeDTO[];
+  retrieveAllRecipes(): RecipeDTO[];
 
-  retrieveById(id: string): RecipeDTO;
+  retrieveRecipeById(id: string): RecipeDTO;
 
-  retrieveByUser(user: string): RecipeDTO[];
+  retrieveRecipeByUser(user: string): RecipeDTO[];
 
-  update(recipe: RecipeDTO, user: string): RecipeDTO;
+  updateRecipe(recipe: RecipeDTO, user: string): RecipeDTO;
 
-  delete(recipe: RecipeDTO, user: string): void;
+  deleteRecipe(id: string, user: string): void;
 }

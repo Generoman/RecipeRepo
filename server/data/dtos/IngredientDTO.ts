@@ -1,5 +1,6 @@
-import { Unit } from "../enums/Unit";
+import { Units } from "../enums/Units";
+import DTO from "./DTO";
 
-export default class IngredientDTO {
-  constructor(name: string, quantity: number, unit: Unit) {}
+export default class IngredientDTO implements DTO {
+  constructor(name: string, quantity: number, unit: Units) {}
 }

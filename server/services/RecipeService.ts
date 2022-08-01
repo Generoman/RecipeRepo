@@ -1,26 +1,30 @@
 import IRecipeService from "./IRecipeService";
 import RecipeDTO from "../data/dtos/RecipeDTO";
+import { cheeseSandwich } from "../__mocks__/data/mockRecipeDTOs";
 
 export default class RecipeService implements IRecipeService {
-  delete(recipe: RecipeDTO, user: string): void {}
+  deleteRecipe(id: string, user: string): void {}
 
-  retrieveAll(): RecipeDTO[] {
+  retrieveAllRecipes(): RecipeDTO[] {
     return [];
   }
 
-  retrieveById(id: string): RecipeDTO | null {
-    return null;
+  retrieveRecipeById(id: string): RecipeDTO {
+    // TODO: remove mocked return value
+    return cheeseSandwich;
   }
 
-  retrieveByUser(user: string): RecipeDTO[] | null {
-    return null;
+  retrieveRecipeByUser(user: string): RecipeDTO[] {
+    return [];
   }
 
-  save(recipeDTO: RecipeDTO): RecipeDTO {
-    return new RecipeDTO();
+  saveRecipe(recipeDTO: RecipeDTO): RecipeDTO {
+    // TODO: remove mocked return value
+    return cheeseSandwich;
   }
 
-  update(recipe: RecipeDTO, user: string): RecipeDTO | null {
-    return null;
+  updateRecipe(recipe: RecipeDTO, user: string): RecipeDTO {
+    // TODO: remove mocked return value
+    return cheeseSandwich;
   }
 }

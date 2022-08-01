@@ -31,7 +31,7 @@ describe("Tests for RecipeService", () => {
     //
   });
 
-  it("should NOT update a recipe given a non-existing/wrong id", async () => {
+  it("should NOT update a non-existing recipe", async () => {
     //
   });
 
