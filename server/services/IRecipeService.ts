@@ -1,7 +1,7 @@
 import RecipeDTO from "../data/dtos/RecipeDTO";
-import IMainService from "./IMainService";
+import IService from "./IService";
 
-export default interface IRecipeService extends IMainService {
+export default interface IRecipeService extends IService {
   save(recipeDTO: RecipeDTO): RecipeDTO;
 
   retrieveAll(): RecipeDTO[];
