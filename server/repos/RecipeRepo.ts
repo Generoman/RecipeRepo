@@ -5,36 +5,36 @@ import RecipeDTO from "../data/dtos/RecipeDTO";
 import { Category } from "../data/enums/Category";
 
 export default class RecipeRepo implements IRecipeRepo {
-  delete(id: string): void {}
+  async delete(id: string): Promise<void> {}
 
-  retrieve(): RecipeDTO[] {
+  async retrieve(): Promise<RecipeDTO[]> {
     return [];
   }
 
-  retrieveById(id: string): RecipeDTO {
+  async retrieveById(id: string): Promise<RecipeDTO> {
     // TODO: remove mocked return value
     return cheeseSandwich;
   }
 
-  retrieveByUser(user: string): RecipeDTO[] {
+  async retrieveByUser(user: string): Promise<RecipeDTO[]> {
     return [];
   }
 
-  save(dto: DTO): RecipeDTO {
+  async save(dto: DTO): Promise<RecipeDTO> {
     // TODO: remove mocked return value
     return cheeseSandwich;
   }
 
-  update(dto: DTO): RecipeDTO {
+  async update(dto: DTO): Promise<RecipeDTO> {
     // TODO: remove mocked return value
     return cheeseSandwich;
   }
 
-  retrieveByCategory(category: Category): RecipeDTO[] {
+  async retrieveByCategory(category: Category): Promise<RecipeDTO[]> {
     return [];
   }
 
-  retrieveByTags(tags: string[]): RecipeDTO[] {
+  async retrieveByTags(tags: string[]): Promise<RecipeDTO[]> {
     return [];
   }
 }

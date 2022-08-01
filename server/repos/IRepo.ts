@@ -1,11 +1,9 @@
-import DTO from "../data/dtos/DTO";
-
 export default interface IRepo<T> {
-  save(object: T): T;
+  save(object: T): Promise<T>;
 
-  retrieve(): T[];
+  retrieve(): Promise<T[]>;
 
-  update(object: T): T;
+  update(object: T): Promise<T>;
 
-  delete(id: string): void;
+  delete(id: string): Promise<void>;
 }

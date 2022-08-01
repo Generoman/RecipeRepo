@@ -1,29 +1,37 @@
-import IRecipeService from "./IRecipeService";
+import AbstractRecipeService from "./AbstractRecipeService";
 import RecipeDTO from "../data/dtos/RecipeDTO";
 import { cheeseSandwich } from "../__mocks__/data/mockRecipeDTOs";
+import IRecipeRepo from "../repos/IRecipeRepo";
 
-export default class RecipeService implements IRecipeService {
-  deleteRecipe(id: string, user: string): void {}
+export default class RecipeService extends AbstractRecipeService {
+  constructor(recipeRepo: IRecipeRepo) {
+    super(recipeRepo);
+  }
 
-  retrieveAllRecipes(): RecipeDTO[] {
+  async deleteRecipe(id: string, user: string): Promise<void> {}
+
+  async retrieveAllRecipes(): Promise<RecipeDTO[]> {
+    return await this.recipeRepo.retrieve();
+  }
+
+  async retrieveRecipeById(id: string): Promise<RecipeDTO> {
+    try {
+      return await this.recipeRepo.retrieveById(id);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async retrieveRecipeByUser(user: string): Promise<RecipeDTO[]> {
     return [];
   }
 
-  retrieveRecipeById(id: string): RecipeDTO {
+  async saveRecipe(recipeDTO: RecipeDTO): Promise<RecipeDTO> {
     // TODO: remove mocked return value
     return cheeseSandwich;
   }
 
-  retrieveRecipeByUser(user: string): RecipeDTO[] {
-    return [];
-  }
-
-  saveRecipe(recipeDTO: RecipeDTO): RecipeDTO {
-    // TODO: remove mocked return value
-    return cheeseSandwich;
-  }
-
-  updateRecipe(recipe: RecipeDTO, user: string): RecipeDTO {
+  async updateRecipe(recipe: RecipeDTO, user: string): Promise<RecipeDTO> {
     // TODO: remove mocked return value
     return cheeseSandwich;
   }

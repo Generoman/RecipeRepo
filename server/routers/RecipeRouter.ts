@@ -1,12 +1,15 @@
 import { AbstractRouter } from "./AbstractRouter";
 import e from "express";
 import IImageService from "../services/IImageService";
-import IRecipeService from "../services/IRecipeService";
+import AbstractRecipeService from "../services/AbstractRecipeService";
 
 export default class RecipeRouter extends AbstractRouter {
   private readonly imageService: IImageService;
 
-  constructor(recipeService: IRecipeService, imageService: IImageService) {
+  constructor(
+    recipeService: AbstractRecipeService,
+    imageService: IImageService
+  ) {
     super(recipeService);
     this.imageService = imageService;
   }

@@ -5,15 +5,15 @@ import DTO from "./DTO";
 
 export default class RecipeDTO implements DTO {
   constructor(
-    title: string,
-    portions: number,
-    author: string,
-    ingredients: IngredientDTO[],
-    categories: Category[],
-    tags: string[],
-    instructions: string,
-    difficulty: Difficulty,
-    id?: string,
-    image?: string
+    public title: string,
+    public portions: number,
+    public author: string,
+    public ingredients: IngredientDTO[],
+    public categories: Category[],
+    public tags: string[],
+    public instructions: string,
+    public difficulty: Difficulty,
+    public id?: string,
+    public image?: string
   ) {}
 }
