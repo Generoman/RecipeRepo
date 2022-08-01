@@ -6,9 +6,9 @@ export default interface IRecipeService extends IService {
 
   retrieveAll(): RecipeDTO[];
 
-  retrieveById(id: string): RecipeDTO | null;
+  retrieveById(id: string): RecipeDTO;
 
-  retrieveByUser(user: string): RecipeDTO[] | null;
+  retrieveByUser(user: string): RecipeDTO[];
 
   update(recipe: RecipeDTO, user: string): RecipeDTO;
 
