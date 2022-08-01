@@ -15,8 +15,6 @@ export default class RecipeRouter extends AbstractRouter {
   }
 
   fetchRoutes(): e.IRouter {
-    // TODO: Implement logic
-
-    return this.router;
+    throw new Error("Not implemented");
   }
 }

@@ -1,6 +1,5 @@
 import AbstractRecipeService from "./AbstractRecipeService";
 import RecipeDTO from "../data/dtos/RecipeDTO";
-import { cheeseSandwich } from "../__mocks__/data/mockRecipeDTOs";
 import IRecipeRepo from "../repos/IRecipeRepo";
 
 export default class RecipeService extends AbstractRecipeService {
@@ -8,7 +7,9 @@ export default class RecipeService extends AbstractRecipeService {
     super(recipeRepo);
   }
 
-  async deleteRecipe(id: string, user: string): Promise<void> {}
+  async deleteRecipe(id: string, user: string): Promise<void> {
+    throw new Error("Not implemented");
+  }
 
   async retrieveAllRecipes(): Promise<RecipeDTO[]> {
     return await this.recipeRepo.retrieve();
@@ -23,16 +24,14 @@ export default class RecipeService extends AbstractRecipeService {
   }
 
   async retrieveRecipeByUser(user: string): Promise<RecipeDTO[]> {
-    return [];
+    throw new Error("Not implemented");
   }
 
   async saveRecipe(recipeDTO: RecipeDTO): Promise<RecipeDTO> {
-    // TODO: remove mocked return value
-    return cheeseSandwich;
+    throw new Error("Not implemented");
   }
 
   async updateRecipe(recipe: RecipeDTO, user: string): Promise<RecipeDTO> {
-    // TODO: remove mocked return value
-    return cheeseSandwich;
+    throw new Error("Not implemented");
   }
 }

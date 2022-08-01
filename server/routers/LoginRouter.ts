@@ -1,4 +1,4 @@
-import { AbstractRouter } from "./AbstractRouter";
+import AbstractRouter from "./AbstractRouter";
 import { ILoginService } from "../services/ILoginService";
 import e from "express";
 
@@ -8,9 +8,6 @@ export default class LoginRouter extends AbstractRouter {
   }
 
   fetchRoutes(): e.IRouter {
-    const router = this.router;
-    const service = this.service;
-
-    return router;
+    throw new Error("Not implemented");
   }
 }
