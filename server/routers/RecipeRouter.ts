@@ -1,4 +1,4 @@
-import { AbstractRouter } from "./AbstractRouter";
+import AbstractRouter from "./AbstractRouter";
 import e from "express";
 import IImageService from "../services/IImageService";
 import AbstractRecipeService from "../services/AbstractRecipeService";
@@ -15,12 +15,8 @@ export default class RecipeRouter extends AbstractRouter {
   }
 
   fetchRoutes(): e.IRouter {
-    const router = this.router;
-    const service = this.service;
-    const imageService = this.imageService;
-
     // TODO: Implement logic
 
-    return router;
+    return this.router;
   }
 }
