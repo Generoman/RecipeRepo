@@ -4,8 +4,8 @@ import { Units } from "../../data/enums/Units";
 import { Category } from "../../data/enums/Category";
 import { Difficulty } from "../../data/enums/Difficulty";
 
-const userRoman = "roman181@gmail.com";
-const userKath = "katfisch123@gmail.com";
+export const userRoman = "roman181@gmail.com";
+export const userKath = "katfisch123@gmail.com";
 
 const carrots = new IngredientDTO("gulrot", 4, Units.PIECE);
 const milkL = new IngredientDTO("melk", 1, Units.LITER);
@@ -57,6 +57,28 @@ export const blueberryBananaMilkshake = new RecipeDTO(
   "Miks alt sammen med stavmikser og drikk",
   Difficulty.EASY,
   "3"
+);
+
+export const recipeNotInArray = new RecipeDTO(
+  "Test Recipe",
+  5,
+  userKath,
+  ingredients1,
+  [Category.APPETIZER, Category.DINNER],
+  ["test"],
+  "Test",
+  Difficulty.MEDIUM
+);
+
+export const recipeMissingAuthor = new RecipeDTO(
+  "Test Recipe",
+  5,
+  "",
+  ingredients1,
+  [Category.APPETIZER, Category.DINNER],
+  ["test"],
+  "Test",
+  Difficulty.MEDIUM
 );
 
 export const mockDataRecipes = [

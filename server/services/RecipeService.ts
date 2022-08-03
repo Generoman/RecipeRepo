@@ -8,7 +8,11 @@ export default class RecipeService extends AbstractRecipeService {
   }
 
   async deleteRecipe(id: string, user: string): Promise<void> {
-    throw new Error("Not implemented");
+    const recipeToDelete = await this.retrieveRecipeById(id);
+
+    if (recipeToDelete.author !== user) throw new Error("User mismatch");
+
+    await this.recipeRepo.delete(id);
   }
 
   async retrieveAllRecipes(): Promise<RecipeDTO[]> {
@@ -23,15 +27,29 @@ export default class RecipeService extends AbstractRecipeService {
     }
   }
 
-  async retrieveRecipeByUser(user: string): Promise<RecipeDTO[]> {
-    throw new Error("Not implemented");
+  async retrieveRecipesByUser(user: string): Promise<RecipeDTO[]> {
+    try {
+      return this.recipeRepo.retrieveByUser(user);
+    } catch (error) {
+      throw error;
+    }
   }
 
   async saveRecipe(recipeDTO: RecipeDTO): Promise<RecipeDTO> {
-    throw new Error("Not implemented");
+    try {
+      return await this.recipeRepo.save(recipeDTO);
+    } catch (error) {
+      throw error;
+    }
   }
 
   async updateRecipe(recipe: RecipeDTO, user: string): Promise<RecipeDTO> {
-    throw new Error("Not implemented");
+    if (!recipe.id) {
+      throw new Error("No ID provided");
+    }
+    if (recipe.author !== user) {
+      throw new Error("User mismatch");
+    }
+    return await this.recipeRepo.update(recipe);
   }
 }

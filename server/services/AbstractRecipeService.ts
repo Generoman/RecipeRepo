@@ -11,7 +11,7 @@ export default abstract class AbstractRecipeService implements IService {
 
   abstract retrieveRecipeById(id: string): Promise<RecipeDTO>;
 
-  abstract retrieveRecipeByUser(user: string): Promise<RecipeDTO[]>;
+  abstract retrieveRecipesByUser(user: string): Promise<RecipeDTO[]>;
 
   abstract updateRecipe(recipe: RecipeDTO, user: string): Promise<RecipeDTO>;
 
