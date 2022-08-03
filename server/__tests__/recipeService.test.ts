@@ -47,15 +47,15 @@ describe("When running methods on RecipeService, ", () => {
     mockedUpdate = On(mockRecipeRepo).get(method((repo) => repo.update));
     mockedDelete = On(mockRecipeRepo).get(method((repo) => repo.delete));
 
-    mockedRetrieveAll.mockImplementation(() => recipesInMemory);
-    mockedRetrieveById.mockImplementation((id: string) => {
+    mockedRetrieveAll.mockImplementation(async () => recipesInMemory);
+    mockedRetrieveById.mockImplementation(async (id: string) => {
       const parsedId = parseInt(id) - 1;
       if (parsedId >= recipesInMemory.length || parsedId < 0) {
         throw new Error("Recipe not found");
       }
       return recipesInMemory[parsedId];
     });
-    mockedSave.mockImplementation((dto: RecipeDTO) => {
+    mockedSave.mockImplementation(async (dto: RecipeDTO) => {
       if (dto.author === "" || !dto.author) {
         throw new Error("Recipe missing author");
       }
@@ -65,7 +65,7 @@ describe("When running methods on RecipeService, ", () => {
 
       return dto;
     });
-    mockedDelete.mockImplementation((id: string) => {
+    mockedDelete.mockImplementation(async (id: string) => {
       for (let i = 0; i < recipesInMemory.length; i++) {
         if (recipesInMemory[i].id === id) {
           recipesInMemory.splice(i, 1);
@@ -74,7 +74,7 @@ describe("When running methods on RecipeService, ", () => {
       }
       throw new Error("Recipe not found");
     });
-    mockedRetrieveByUser.mockImplementation((user: string) => {
+    mockedRetrieveByUser.mockImplementation(async (user: string) => {
       const returnValue: RecipeDTO[] = [];
 
       for (let i = 0; i < recipesInMemory.length; i++) {
@@ -87,7 +87,7 @@ describe("When running methods on RecipeService, ", () => {
       }
       return returnValue;
     });
-    mockedUpdate.mockImplementation((dto: RecipeDTO) => {
+    mockedUpdate.mockImplementation(async (dto: RecipeDTO) => {
       for (let i = 0; i < recipesInMemory.length; i++) {
         if (dto.id === recipesInMemory[i].id) {
           recipesInMemory[i] = dto;

@@ -9,9 +9,9 @@ export default class RecipeService extends AbstractRecipeService {
 
   async deleteRecipe(id: string, user: string): Promise<void> {
     const recipeToDelete = await this.retrieveRecipeById(id);
-
-    if (recipeToDelete.author !== user) throw new Error("User mismatch");
-
+    if (recipeToDelete.author !== user) {
+      throw new Error("User mismatch");
+    }
     await this.recipeRepo.delete(id);
   }
 
@@ -20,27 +20,15 @@ export default class RecipeService extends AbstractRecipeService {
   }
 
   async retrieveRecipeById(id: string): Promise<RecipeDTO> {
-    try {
-      return await this.recipeRepo.retrieveById(id);
-    } catch (error) {
-      throw error;
-    }
+    return await this.recipeRepo.retrieveById(id);
   }
 
   async retrieveRecipesByUser(user: string): Promise<RecipeDTO[]> {
-    try {
-      return this.recipeRepo.retrieveByUser(user);
-    } catch (error) {
-      throw error;
-    }
+    return await this.recipeRepo.retrieveByUser(user);
   }
 
   async saveRecipe(recipeDTO: RecipeDTO): Promise<RecipeDTO> {
-    try {
-      return await this.recipeRepo.save(recipeDTO);
-    } catch (error) {
-      throw error;
-    }
+    return await this.recipeRepo.save(recipeDTO);
   }
 
   async updateRecipe(recipe: RecipeDTO, user: string): Promise<RecipeDTO> {
